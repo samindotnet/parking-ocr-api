@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Vehicles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list *ngIf="vehicles?.length; else emptyState">
+    <ion-item *ngFor="let v of vehicles">
+      <ion-label>
+        <h2>{{ v.make }} {{ v.model }} ({{ v.year }})</h2>
+        <p><strong>Plate:</strong> {{ v.licensePlate }} — {{ v.state }}</p>
+        <p><strong>Type:</strong> {{ v.classification }}</p>
+      </ion-label>
+
+      <ion-button
+      color="danger"
+      fill="outline"
+      slot="end"
+      (click)="deleteVehicle(v.id)">
+      Delete
+    </ion-button>
+
+    </ion-item>
+  </ion-list>
+
+  <ng-template #emptyState>
+    <ion-text color="medium">
+      <p style="text-align:center; margin-top: 40px;">
+        No vehicles saved yet.
+      </p>
+    </ion-text>
+  </ng-template>
+
+</ion-content>

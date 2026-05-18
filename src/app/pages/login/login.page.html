@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-item>
+    <ion-input
+      placeholder="Email"
+      [(ngModel)]="email"
+      type="email">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input
+      placeholder="Password"
+      [(ngModel)]="password"
+      type="password">
+    </ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="login()">
+    LOGIN
+  </ion-button>
+
+  <ion-button fill="clear" expand="block" (click)="goToRegister()">
+    CREATE ACCOUNT
+  </ion-button>
+
+</ion-content>
